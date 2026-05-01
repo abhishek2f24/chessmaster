@@ -9,8 +9,30 @@ export async function GET(req: NextRequest) {
 
   const { searchParams } = new URL(req.url)
   const rating = parseInt(searchParams.get('rating') ?? '800')
+  const userId = session.user.id
+  const userPlan = session.user.plan
 
-  const puzzle = await getNextPuzzle(session.user.id, rating)
+  // Enforce daily limit for FREE plan
+  if (userPlan === 'FREE') {
+    const todayStart = new Date()
+    todayStart.setHours(0, 0, 0, 0)
+    
+    const todayAttempts = await prisma.puzzleAttempt.count({
+      where: {
+        userId,
+        createdAt: { gte: todayStart }
+      }
+    })
+
+    if (todayAttempts >= 10) {
+      return NextResponse.json({ 
+        error: 'Daily limit reached', 
+        limitReached: true 
+      }, { status: 403 })
+    }
+  }
+
+  const puzzle = await getNextPuzzle(userId, rating)
   if (!puzzle) return NextResponse.json({ puzzle: null })
 
   return NextResponse.json({ puzzle })

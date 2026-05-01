@@ -13,10 +13,20 @@ export default async function PuzzlesPage() {
 
   const user = await prisma.user.findUnique({
     where: { id: userId },
-    select: { puzzleRating: true, currentStreak: true, totalPuzzlesSolved: true },
+    select: { puzzleRating: true, currentStreak: true, totalPuzzlesSolved: true, subscription: { select: { plan: true } } },
   })
 
-  const puzzle = await getNextPuzzle(userId, user?.puzzleRating ?? 800)
+  let limitReached = false
+  if (user?.subscription?.plan === 'FREE') {
+    const todayStart = new Date()
+    todayStart.setHours(0, 0, 0, 0)
+    const todayAttempts = await prisma.puzzleAttempt.count({
+      where: { userId, createdAt: { gte: todayStart } }
+    })
+    if (todayAttempts >= 10) limitReached = true
+  }
+
+  const puzzle = !limitReached ? await getNextPuzzle(userId, user?.puzzleRating ?? 800) : null
 
   return (
     <div className="max-w-7xl mx-auto">
@@ -28,6 +38,7 @@ export default async function PuzzlesPage() {
         initialPuzzle={puzzle ? { ...puzzle, themes: puzzle.themes as string[] } : null}
         userRating={user?.puzzleRating ?? 800}
         userId={userId}
+        initialLimitReached={limitReached}
       />
     </div>
   )

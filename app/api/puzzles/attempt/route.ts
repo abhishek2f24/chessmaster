@@ -12,6 +12,27 @@ export async function POST(req: NextRequest) {
 
     const { puzzleId, solved, timeSeconds, mode } = await req.json()
     const userId = session.user.id
+    const userPlan = session.user.plan
+
+    // Enforce daily limit for FREE plan
+    if (userPlan === 'FREE') {
+      const todayStart = new Date()
+      todayStart.setHours(0, 0, 0, 0)
+      
+      const todayAttempts = await prisma.puzzleAttempt.count({
+        where: {
+          userId,
+          createdAt: { gte: todayStart }
+        }
+      })
+
+      if (todayAttempts >= 10) {
+        return NextResponse.json({ 
+          error: 'Daily limit reached', 
+          limitReached: true 
+        }, { status: 403 })
+      }
+    }
 
     const [user, puzzle] = await Promise.all([
       prisma.user.findUnique({ where: { id: userId }, select: { puzzleRating: true, currentStreak: true, longestStreak: true, lastPuzzleDate: true, totalPuzzlesSolved: true, totalPuzzlesAttempted: true, xpPoints: true } }),
