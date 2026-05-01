@@ -82,7 +82,7 @@ export function PuzzlesPageClient({ initialPuzzle, userRating, userId, initialLi
     if (data.newRating) {
       setCurrentRating(data.newRating)
       // Trigger NextAuth session update to refresh the sidebar rating
-      update()
+      await update({})
     }
     return { ratingDelta: data.ratingDelta ?? 0, newRating: data.newRating ?? currentRating }
   }

@@ -17,7 +17,6 @@ const navItems = [
 ]
 
 const secondaryItems = [
-  { href: '/puzzles/retry', label: 'Mistake Review', icon: RefreshCw },
   { href: '/puzzles/daily', label: 'Daily Challenge', icon: Target },
   { href: '/profile', label: 'My Profile', icon: User },
   { href: '/profile/settings', label: 'Settings', icon: Settings },

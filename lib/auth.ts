@@ -47,8 +47,11 @@ export const authOptions: NextAuthOptions = {
       }
 
       if (user || trigger === 'update') {
+        const email = user?.email || token.email
+        if (!email) return token
+
         const dbUser = await prisma.user.findUnique({
-          where: { email: token.email as string },
+          where: { email: email as string },
           select: {
             id: true,
             role: true,

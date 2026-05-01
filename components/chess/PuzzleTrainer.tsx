@@ -188,7 +188,7 @@ export function PuzzleTrainer({ initialPuzzle, userRating, onSolve, onNext }: Pr
         </AnimatePresence>
 
         {/* Board */}
-        <div className={`chess-board-container transition-all duration-150 ${
+        <div className={`chess-board-container ${
           status === 'wrong' ? 'ring-2 ring-red-500/50' : ''
         }`}>
           <Chessboard
