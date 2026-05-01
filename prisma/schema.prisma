@@ -1,0 +1,413 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  STUDENT
+  ADMIN
+  COACH
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELLED
+  EXPIRED
+  TRIALING
+  PAST_DUE
+}
+
+enum SubscriptionPlan {
+  FREE
+  PREMIUM_MONTHLY
+  PREMIUM_YEARLY
+}
+
+enum PuzzleTheme {
+  FORK
+  PIN
+  SKEWER
+  DISCOVERED_ATTACK
+  DOUBLE_CHECK
+  BACK_RANK
+  SMOTHERED_MATE
+  ATTRACTION
+  DEFLECTION
+  DECOY
+  INTERFERENCE
+  CLEARANCE
+  SACRIFICE
+  ZWISCHENZUG
+  ENDGAME
+  OPENING
+  MIDDLEGAME
+  MATING_NET
+  HANGING_PIECE
+  LONG_PUZZLE
+  SHORT_PUZZLE
+  ADVANCED_PAWN
+  ZUGZWANG
+}
+
+enum DifficultyLevel {
+  BEGINNER
+  INTERMEDIATE
+  ADVANCED
+  EXPERT
+}
+
+model User {
+  id                String    @id @default(cuid())
+  email             String    @unique
+  name              String?
+  username          String?   @unique
+  password          String?
+  image             String?
+  role              Role      @default(STUDENT)
+  emailVerified     DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  // Chess Profile
+  chessRating       Int       @default(1200)
+  puzzleRating      Int       @default(800)
+  puzzleRatingBest  Int       @default(800)
+  totalPuzzlesSolved Int      @default(0)
+  totalPuzzlesAttempted Int   @default(0)
+  currentStreak     Int       @default(0)
+  longestStreak     Int       @default(0)
+  lastPuzzleDate    DateTime?
+  xpPoints          Int       @default(0)
+  level             Int       @default(1)
+
+  // Onboarding
+  skillLevel        String?
+  goal              String?
+  preferredPath     String?
+  onboardingDone    Boolean   @default(false)
+
+  // Relations
+  accounts          Account[]
+  sessions          Session[]
+  subscription      Subscription?
+  puzzleAttempts    PuzzleAttempt[]
+  puzzleRatings     PuzzleRatingHistory[]
+  mistakeReviews    MistakeReview[]
+  lessonProgress    LessonProgress[]
+  courseEnrollments CourseEnrollment[]
+  achievements      UserAchievement[]
+  leaderboardEntries LeaderboardEntry[]
+  dailyChallenges   DailyChallengeAttempt[]
+
+  @@map("users")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model Subscription {
+  id                   String             @id @default(cuid())
+  userId               String             @unique
+  plan                 SubscriptionPlan   @default(FREE)
+  status               SubscriptionStatus @default(TRIALING)
+  stripeCustomerId     String?            @unique
+  stripeSubscriptionId String?            @unique
+  stripePriceId        String?
+  currentPeriodStart   DateTime?
+  currentPeriodEnd     DateTime?
+  cancelAtPeriodEnd    Boolean            @default(false)
+  trialEnd             DateTime?
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+  user                 User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("subscriptions")
+}
+
+model Puzzle {
+  id           String        @id @default(cuid())
+  lichessId    String?       @unique
+  fen          String
+  moves        String[]
+  rating       Int           @default(1500)
+  ratingDeviation Int        @default(100)
+  popularity   Int           @default(0)
+  themes       PuzzleTheme[]
+  openingTags  String[]
+  gameUrl      String?
+  isActive     Boolean       @default(true)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  attempts     PuzzleAttempt[]
+  mistakeReviews MistakeReview[]
+  dailyChallenges DailyChallenge[]
+
+  @@index([rating])
+  @@index([isActive])
+  @@map("puzzles")
+}
+
+model PuzzleAttempt {
+  id          String   @id @default(cuid())
+  userId      String
+  puzzleId    String
+  solved      Boolean
+  timeSeconds Int?
+  ratingBefore Int
+  ratingAfter  Int
+  ratingDelta  Int
+  attemptNumber Int    @default(1)
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  puzzle      Puzzle   @relation(fields: [puzzleId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([puzzleId])
+  @@map("puzzle_attempts")
+}
+
+model PuzzleRatingHistory {
+  id        String   @id @default(cuid())
+  userId    String
+  rating    Int
+  date      DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, date])
+  @@map("puzzle_rating_history")
+}
+
+model MistakeReview {
+  id          String   @id @default(cuid())
+  userId      String
+  puzzleId    String
+  reviewCount Int      @default(0)
+  solved      Boolean  @default(false)
+  nextReview  DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  puzzle      Puzzle   @relation(fields: [puzzleId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, puzzleId])
+  @@map("mistake_reviews")
+}
+
+model DailyChallenge {
+  id        String   @id @default(cuid())
+  date      DateTime @unique
+  easyId    String?
+  mediumId  String?
+  hardId    String?
+  insaneId  String?
+  createdAt DateTime @default(now())
+  easy      Puzzle?  @relation(fields: [easyId], references: [id])
+  attempts  DailyChallengeAttempt[]
+
+  @@map("daily_challenges")
+}
+
+model DailyChallengeAttempt {
+  id               String         @id @default(cuid())
+  userId           String
+  dailyChallengeId String
+  completedAll     Boolean        @default(false)
+  bonusAwarded     Boolean        @default(false)
+  createdAt        DateTime       @default(now())
+  user             User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dailyChallenge   DailyChallenge @relation(fields: [dailyChallengeId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, dailyChallengeId])
+  @@map("daily_challenge_attempts")
+}
+
+model Course {
+  id           String          @id @default(cuid())
+  slug         String          @unique
+  title        String
+  description  String          @db.Text
+  thumbnail    String?
+  instructorId String?
+  instructorName String
+  category     String
+  level        DifficultyLevel @default(BEGINNER)
+  ratingMin    Int             @default(0)
+  ratingMax    Int             @default(3000)
+  isPremium    Boolean         @default(false)
+  isPublished  Boolean         @default(false)
+  order        Int             @default(0)
+  totalLessons Int             @default(0)
+  totalHours   Float           @default(0)
+  rating       Float           @default(0)
+  enrollments  Int             @default(0)
+  tags         String[]
+  createdAt    DateTime        @default(now())
+  updatedAt    DateTime        @updatedAt
+
+  chapters     Chapter[]
+  enrolledUsers CourseEnrollment[]
+
+  @@index([category])
+  @@index([isPublished])
+  @@map("courses")
+}
+
+model Chapter {
+  id          String   @id @default(cuid())
+  courseId    String
+  title       String
+  description String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  course      Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  lessons     Lesson[]
+
+  @@index([courseId])
+  @@map("chapters")
+}
+
+model Lesson {
+  id           String   @id @default(cuid())
+  chapterId    String
+  title        String
+  description  String?  @db.Text
+  videoUrl     String?
+  duration     Int?
+  pgnContent   String?  @db.Text
+  textContent  String?  @db.Text
+  downloadUrl  String?
+  order        Int      @default(0)
+  isPremium    Boolean  @default(false)
+  isFree       Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  chapter      Chapter  @relation(fields: [chapterId], references: [id], onDelete: Cascade)
+  progress     LessonProgress[]
+
+  @@index([chapterId])
+  @@map("lessons")
+}
+
+model LessonProgress {
+  id          String   @id @default(cuid())
+  userId      String
+  lessonId    String
+  completed   Boolean  @default(false)
+  watchedSecs Int      @default(0)
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  lesson      Lesson   @relation(fields: [lessonId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, lessonId])
+  @@map("lesson_progress")
+}
+
+model CourseEnrollment {
+  id             String   @id @default(cuid())
+  userId         String
+  courseId       String
+  progressPercent Int     @default(0)
+  lastLesson     String?
+  completedAt    DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  course         Course   @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId])
+  @@map("course_enrollments")
+}
+
+model Achievement {
+  id          String            @id @default(cuid())
+  name        String            @unique
+  description String
+  icon        String
+  xpReward    Int               @default(0)
+  condition   String
+  createdAt   DateTime          @default(now())
+  userAchievements UserAchievement[]
+
+  @@map("achievements")
+}
+
+model UserAchievement {
+  id            String      @id @default(cuid())
+  userId        String
+  achievementId String
+  earnedAt      DateTime    @default(now())
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  achievement   Achievement @relation(fields: [achievementId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, achievementId])
+  @@map("user_achievements")
+}
+
+model LeaderboardEntry {
+  id          String   @id @default(cuid())
+  userId      String
+  period      String
+  rank        Int
+  puzzleRating Int
+  puzzlesSolved Int
+  accuracy    Float
+  createdAt   DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([period, rank])
+  @@map("leaderboard_entries")
+}
+
+model Announcement {
+  id        String   @id @default(cuid())
+  title     String
+  content   String   @db.Text
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("announcements")
+}
