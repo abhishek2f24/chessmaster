@@ -12,7 +12,8 @@
     "db:studio": "prisma studio",
     "db:generate": "prisma generate",
     "db:migrate": "prisma migrate dev",
-    "import:puzzles": "ts-node --project tsconfig.seed.json scripts/import-lichess-puzzles.ts"
+    "import:puzzles": "ts-node --project tsconfig.seed.json scripts/import-lichess-puzzles.ts",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.2",
