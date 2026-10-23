@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import Link from 'next/link'
-import { Users, Zap, BookOpen, Activity, Crown, Settings, Upload, TrendingUp } from 'lucide-react'
+import { Users, Zap, BookOpen, Activity, Crown, Settings, Upload, TrendingUp, Plus } from 'lucide-react'
 import { formatDate } from '@/lib/utils'
 
 interface Props {
@@ -20,7 +20,9 @@ export function AdminDashboardClient({ stats, recentUsers }: Props) {
 
   const quickActions = [
     { label: 'Create Course', icon: BookOpen, href: '/admin/courses/new', color: 'text-blue-400' },
-    { label: 'Import Puzzles', icon: Upload, href: '/admin/puzzles/import', color: 'text-[#D4AF37]' },
+    { label: 'Add Puzzle', icon: Plus, href: '/admin/puzzles/new', color: 'text-[#D4AF37]' },
+    { label: 'Manage Puzzles', icon: Zap, href: '/admin/puzzles', color: 'text-[#D4AF37]' },
+    { label: 'Import Puzzles', icon: Upload, href: '/admin/puzzles/import', color: 'text-orange-400' },
     { label: 'Manage Users', icon: Users, href: '/admin/users', color: 'text-emerald-400' },
     { label: 'View Analytics', icon: TrendingUp, href: '/admin/analytics', color: 'text-purple-400' },
     { label: 'Achievements', icon: Crown, href: '/admin/achievements', color: 'text-orange-400' },

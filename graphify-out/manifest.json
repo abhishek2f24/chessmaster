@@ -1,0 +1,290 @@
+{
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\next-env.d.ts": {
+    "mtime": 1777656981.6069334,
+    "hash": "da547da2ebeb322abd0257ae82d0f1bf"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\next.config.js": {
+    "mtime": 1777655656.228589,
+    "hash": "7332af186515a5853e207298a4428fab"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\postcss.config.js": {
+    "mtime": 1777655688.570119,
+    "hash": "854b38759e7a8b4b82306ae2d9a3a833"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\tailwind.config.ts": {
+    "mtime": 1777655674.9610105,
+    "hash": "843bda5431574c232bcdf55bd813725f"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\layout.tsx": {
+    "mtime": 1777655874.4013805,
+    "hash": "b6a0a1352c300823aee1bdb02196d849"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\page.tsx": {
+    "mtime": 1777655942.911496,
+    "hash": "d2daa0ff3e711ce77105521ee8375fa2"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(admin)\\layout.tsx": {
+    "mtime": 1777656522.5020201,
+    "hash": "9b1dbc4f9ef5f5363b4c301c07efb94a"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(admin)\\admin\\AdminDashboardClient.tsx": {
+    "mtime": 1777656546.6780436,
+    "hash": "e9ceab9b3062c092a7a6201db6501392"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(admin)\\admin\\page.tsx": {
+    "mtime": 1777657037.288668,
+    "hash": "3eae9dd4bfce0f46d67653275b6fdb51"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(admin)\\admin\\puzzles\\import\\page.tsx": {
+    "mtime": 1777656559.146446,
+    "hash": "848f1a9858a032f10ecd9cc78a5e26ad"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(auth)\\login\\loading.tsx": {
+    "mtime": 1777663754.238725,
+    "hash": "81c1efec3a3c08c69b19e471c33e4014"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(auth)\\login\\page.tsx": {
+    "mtime": 1777657153.8893988,
+    "hash": "85972a6c8fd213a4b1c0696f3bbe42fd"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(auth)\\register\\loading.tsx": {
+    "mtime": 1777663761.1276047,
+    "hash": "e145812fa8ad94d9ee3464a5a795af5b"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(auth)\\register\\page.tsx": {
+    "mtime": 1777656184.0286715,
+    "hash": "d4be38148909815fca9cc9bb7275afe7"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\layout.tsx": {
+    "mtime": 1777656234.125095,
+    "hash": "af46619afde49b85ea642a79b24e0494"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\loading.tsx": {
+    "mtime": 1777663769.385141,
+    "hash": "df3b5182c1b4ccb63032fbe60f3969c7"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\courses\\CoursesClient.tsx": {
+    "mtime": 1777656412.4158735,
+    "hash": "cc80454bcd9fcd2d9a8e366efb9263d6"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\courses\\loading.tsx": {
+    "mtime": 1777663784.118004,
+    "hash": "eec8d002b031e73c306270ab0e6702ea"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\courses\\page.tsx": {
+    "mtime": 1777657037.3783262,
+    "hash": "a72c2da87f1653343fe18e1aed4216d4"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\courses\\[slug]\\CourseDetailClient.tsx": {
+    "mtime": 1777656444.4969683,
+    "hash": "0a8133d0c234b5229f0cbaeb81bef2fd"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\courses\\[slug]\\page.tsx": {
+    "mtime": 1777657037.4841714,
+    "hash": "6485bd0a0a1707392f7581ba9d387faa"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\dashboard\\DashboardClient.tsx": {
+    "mtime": 1777656291.190396,
+    "hash": "39161e1137c9fef8192e4a4ccd9dcda9"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\dashboard\\page.tsx": {
+    "mtime": 1777657037.5791345,
+    "hash": "d291721785243f564731edc730d15e3a"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\leaderboard\\LeaderboardClient.tsx": {
+    "mtime": 1777656477.415452,
+    "hash": "b2fe99a7eecf127300c8b415f80574a0"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\leaderboard\\loading.tsx": {
+    "mtime": 1777663791.1327188,
+    "hash": "3c5fa0ac2b8e035e7660346bfec3cc5e"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\leaderboard\\page.tsx": {
+    "mtime": 1777657037.6703405,
+    "hash": "40d4be7fa0efc76539f8f6d87da9a1fc"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\profile\\page.tsx": {
+    "mtime": 1777657037.7329662,
+    "hash": "46624796842c9ffb633f3e71350ae667"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\profile\\ProfileClient.tsx": {
+    "mtime": 1777656510.8669083,
+    "hash": "c8e94209188c5c0fcb18a9e885a37935"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\puzzles\\loading.tsx": {
+    "mtime": 1777663776.45094,
+    "hash": "483852fda0b2395f6692bba518c3fdec"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\puzzles\\page.tsx": {
+    "mtime": 1777668690.2368276,
+    "hash": "a7c93e7c1a203d403ce708351f5ba1bd"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\puzzles\\PuzzlesPageClient.tsx": {
+    "mtime": 1777670309.075054,
+    "hash": "dd54d04c88e55dbc532d92307ffc02c0"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\(dashboard)\\puzzles\\daily\\page.tsx": {
+    "mtime": 1777656381.003534,
+    "hash": "94859321c59634efd5b9163ea715f0cf"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\api\\admin\\puzzles\\import\\route.ts": {
+    "mtime": 1777667204.2988825,
+    "hash": "874508d1b1327fb7434c5e8d71f89949"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\api\\auth\\register\\route.ts": {
+    "mtime": 1777656573.9641652,
+    "hash": "df11658e2425efdc04e9ea10c37aef43"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\api\\auth\\[...nextauth]\\route.ts": {
+    "mtime": 1777656567.4549904,
+    "hash": "0ca1fa65c694c83d511461c80d2b43f9"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\api\\courses\\enroll\\route.ts": {
+    "mtime": 1777656601.896165,
+    "hash": "d50e203af0d1476651be461b5649c78b"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\api\\puzzles\\attempt\\route.ts": {
+    "mtime": 1777668644.864625,
+    "hash": "ee418b39d1a12f3be65684d5470163b9"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\api\\puzzles\\next\\route.ts": {
+    "mtime": 1777668869.9918873,
+    "hash": "844f8a4a45a117663978643c9f7d24a2"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\api\\stripe\\checkout\\route.ts": {
+    "mtime": 1777656620.764915,
+    "hash": "284ca7d575af59019978694c9765663c"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\api\\stripe\\portal\\route.ts": {
+    "mtime": 1777656626.055515,
+    "hash": "f53b46cd98c810da80d9ddc97809c859"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\api\\users\\onboarding\\route.ts": {
+    "mtime": 1777656614.210897,
+    "hash": "51c44243480e90feb49aecab72ee62b1"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\api\\users\\profile\\route.ts": {
+    "mtime": 1777656608.8550205,
+    "hash": "73fd46beb4fd558cc01ee73aea3b2887"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\api\\webhooks\\stripe\\route.ts": {
+    "mtime": 1777656636.3384585,
+    "hash": "c69ac795805f7642c745af5cf7c2747d"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\app\\onboarding\\page.tsx": {
+    "mtime": 1777656206.7207935,
+    "hash": "3f1a38ca26d39f0be9d0154de4330eba"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\providers.tsx": {
+    "mtime": 1777655877.9833026,
+    "hash": "8779c7daf3796b80cb67cd4271e2b9b9"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\chess\\PuzzleTrainer.tsx": {
+    "mtime": 1777670315.5516179,
+    "hash": "88c90a596ee450a07855b3c2f0354e51"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\chess\\SolutionStepper.tsx": {
+    "mtime": 1777663843.9361327,
+    "hash": "e987f84b9ff4ba38534e2ab0db29668d"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\landing\\CoursesPreview.tsx": {
+    "mtime": 1777656023.3967202,
+    "hash": "3418673d3c92103d2466adc6e3e9d455"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\landing\\CtaSection.tsx": {
+    "mtime": 1777656137.5121837,
+    "hash": "930bfbaea8f232a7a5ca3a0709646e8c"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\landing\\FaqSection.tsx": {
+    "mtime": 1777656126.7516313,
+    "hash": "2ff9b9af042db8e5982103aeb6a71d96"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\landing\\FeaturesSection.tsx": {
+    "mtime": 1777656004.1777716,
+    "hash": "f18cadb3a3ef631ec27ba3fc0ebfed40"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\landing\\HeroSection.tsx": {
+    "mtime": 1777655977.316418,
+    "hash": "50117c932c17fcbcb3aeba367329fbd5"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\landing\\LeaderboardPreview.tsx": {
+    "mtime": 1777656107.7956362,
+    "hash": "8449b98c3bc8c98e19b95f1a1e64124e"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\landing\\PricingSection.tsx": {
+    "mtime": 1777656086.5656562,
+    "hash": "1eec7ed736acf8843a9c2441a868e33d"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\landing\\PuzzlePreview.tsx": {
+    "mtime": 1777656048.0658848,
+    "hash": "1207ecf4e390505dd724135ed6895856"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\landing\\StatsBar.tsx": {
+    "mtime": 1777655985.7765892,
+    "hash": "1c320183dcf4ed0279e87de2a2f58eca"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\landing\\TestimonialsSection.tsx": {
+    "mtime": 1777656068.027983,
+    "hash": "5d9a24ce210273b52a38350a93debee7"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\layout\\DashboardSidebar.tsx": {
+    "mtime": 1777670295.4522748,
+    "hash": "80e518815bcbeb3b7e49b77d3ef18f22"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\layout\\Footer.tsx": {
+    "mtime": 1777655935.5231645,
+    "hash": "cfbf67a41f63d85791884912ece8bcc1"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\components\\layout\\Navbar.tsx": {
+    "mtime": 1777663810.678095,
+    "hash": "157ba15c73d2017a04562d08b3ac555b"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\lib\\auth.ts": {
+    "mtime": 1777670302.338753,
+    "hash": "5455356f4dee85fff09a989beeb1abcd"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\lib\\elo.ts": {
+    "mtime": 1777655766.0959108,
+    "hash": "ae2a321ded44d398aca04e42a463219a"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\lib\\prisma.ts": {
+    "mtime": 1777655743.9366553,
+    "hash": "0547404529dfd966af796b46cefa1954"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\lib\\puzzle-engine.ts": {
+    "mtime": 1777655796.927815,
+    "hash": "698937e07737b94af594f791dd1f350a"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\lib\\stripe.ts": {
+    "mtime": 1777655776.8245287,
+    "hash": "d88ecffdfe11f91c7e418ae64ec0a486"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\lib\\utils.ts": {
+    "mtime": 1777655786.5578713,
+    "hash": "26a92c09ce065ead9b39e465388bcfd4"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\prisma\\seed.ts": {
+    "mtime": 1777656711.2638924,
+    "hash": "af6321ff8e81ea299f13449dea0ddbf4"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\scripts\\import-lichess-puzzles.ts": {
+    "mtime": 1777663018.9385154,
+    "hash": "7999f2b5438738327ce128b615713c88"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\store\\puzzle-store.ts": {
+    "mtime": 1777661101.4279773,
+    "hash": "e756b5cbce2fd691d90d298e51b6081b"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\store\\user-store.ts": {
+    "mtime": 1777655840.1330519,
+    "hash": "198c969ee4cfef335420006de148ab30"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\types\\index.ts": {
+    "mtime": 1777655815.0008235,
+    "hash": "51e43af60e60935e0cccf15f12594d30"
+  },
+  "C:\\Users\\Abhishek\\Desktop\\ghd\\personal\\chessmood\\README.md": {
+    "mtime": 1777657263.7352555,
+    "hash": "f2b093b06be5bde56c17cda659293782"
+  }
+}

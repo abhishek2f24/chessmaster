@@ -117,7 +117,9 @@
   }
 
   .chess-board-container {
-    @apply relative rounded-xl overflow-hidden shadow-premium;
+    @apply relative rounded-xl shadow-premium w-full max-w-[min(90vw,550px)] mx-auto aspect-square;
+    padding: 2px;
+    background: #1A1A24;
   }
 
   .puzzle-status-correct {
